@@ -16,7 +16,7 @@ spring:
     enabled: true
     baseline-on-migrate: true
     baseline-version: 0
-    schemas: country
+    schemas: public
     locations: classpath:db/migration/country
   jpa:
     hibernate:
@@ -29,3 +29,7 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false
     open-in-view: false
+
+logging:
+  level:
+    org.flywaydb.core: debug

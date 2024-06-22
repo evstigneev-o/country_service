@@ -3,6 +3,7 @@ package ru.evstigneev.country.data;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
+import ru.evstigneev.country.model.Country;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -36,5 +37,12 @@ public class CountryEntity {
     @Override
     public final int hashCode() {
         return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
+    }
+
+    public static CountryEntity fromJson(Country country) {
+        CountryEntity countryEntity = new CountryEntity();
+        countryEntity.setName(country.name());
+        countryEntity.setCode(country.code());
+        return countryEntity;
     }
 }

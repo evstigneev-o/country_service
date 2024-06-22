@@ -1,19 +1,19 @@
 create extension if not exists "uuid-ossp";
 
-create table if not exists "country"
+create table if not exists country
 (
     id           UUID unique        not null default uuid_generate_v1() primary key,
     country      varchar(50) unique not null,
-    country_code varchar(2)         not null
+    country_code varchar(3)         not null
 );
 
-alter table "country"
+alter table country
     owner to postgres;
 
 delete
-from "country";
+from country;
 
-insert into "country"(name, code)
+insert into country(name, code)
 values ('Fiji', 'FJ'),
        ('Tanzania', 'TZ'),
        ('Western Sahara', 'EH'),

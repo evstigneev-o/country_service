@@ -2,6 +2,7 @@ package ru.evstigneev.country.model;
 
 import ru.evstigneev.country.data.CountryEntity;
 
+
 public record Country(String name,
                       String code) {
 
